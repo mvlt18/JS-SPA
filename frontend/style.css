@@ -1,0 +1,61 @@
+body{font-family: 'Montserrat', sans-serif;}
+h1,h2,h3,h4,h5,h6 {font-family: 'Work Sans', sans-serif;}
+
+h1{
+  font-size: 40px;
+}
+
+h2{
+  min-height: 75px;
+  vertical-align: middle;
+}
+
+h3{
+  font-size: 18px;
+  margin: 8px;
+  text-align: left;
+}
+
+h4{
+    font-size: 12px;
+    margin: 0;
+    font-style: normal;
+    font-weight: lighter;
+    color: red;
+}
+
+p{
+ font-size: 14px;
+ text-align: left;
+ margin: 8px;
+}
+
+.top-header {
+  padding-top:16px;
+  padding-bottom:16px;
+  text-align:center;
+}
+
+.first-photo-container{
+  padding-top:16px;
+  padding-bottom:16px;
+  margin: 0 3%;
+  text-align:center
+}
+
+.quarter-container{
+  float: left;
+  max-width: 385px;
+  min-width: 360px;
+  height: 360px;
+  padding:4px 10px;
+}
+
+.image{
+  height: 185px;
+  width: 100%;
+}
+
+.rating{
+  padding: 5px 0
+}
