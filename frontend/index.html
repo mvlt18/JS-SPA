@@ -10,21 +10,36 @@
 
   <body>
     <!-- Top menu -->
-    <div class="top-header"><h1>My Books</h1></div>
-
-    <!-- Page Content -->
+    <div class="top-header"><h1>Page-Turners Club</h1></div>
 
     <!-- Photo Grid-->
-  <div class="first-photo-container">
+  <div class="photo-container">
 
     <div class="quarter-container">
-      <img src="/something.jpg" alt="Book 1" class="image">
-      <h3>Brotopia: Breaking Up the Boys' Club of Silicon Valley</h3>
-      <div class="rating"><h4>add | edit | delete</h4></div>
-      <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+
+      <h1 id =testingbooks></h1>
+
+      <img src="" alt="Book 1" id="image">
+      <h3 id="book-title">Brotopia: Breaking Up the Boys' Club of Silicon Valley</h3>
+
+      <!-- Add New Review -->
+      <div id="new-review-container">
+        <form id="review-form">
+           <label> <h4>Add a New Review</h4> </label>
+           <input type="text" id="new-review-input" value = "Click to add a new Review">
+           <button type="submit">Add</button>
+        </form>
+      </div>
+
+      <!-- Current Reviews -->
+      <div>
+        <p id="review-container"></p>
+        <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+      </div>
+
     </div>
 
-    <div class="quarter-container">
+    <!-- <div class="quarter-container">
       <img src="/something.jpg" alt="Book 2" class="image">
       <h3>The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution</h3>
       <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
@@ -64,9 +79,25 @@
       <img src="/something.jpg" alt="Book 8" class="image">
       <h3>Computer Science: An Interdisciplinary Approach</h3>
       <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-    </div>
-
+    </div> -->
   </div>
+
+  <!-- Add New Book to Book Club -->
+
+  <!-- <div id="add-new-book">
+    <form id="new-book-form">
+      <h2>Finished a new book not listed yet? Add it!</h2>
+      <input type="text" id="new-book-title" value="Enter Book Title">
+      <input type="text" id="new-book-author" value="Enter Book Author">
+      <input type="text" id="new-book-image" value="Enter Book URL image">
+      <input type="submit" name="" value="Add Book">
+    </form>
+  </div> -->
+
+  <script src="src/components/books.js"></script>
+  <script src="src/components/app.js"></script>
+  <script src="src/adapters/BooksAdapter.js"></script>
+  <script src="src/index.js"></script>
 
 
   </body>
