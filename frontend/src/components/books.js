@@ -2,7 +2,6 @@ class Books {
   constructor() {
     this.books = []
     this.adapter = new BooksAdapter()
-    //this.bindEventListeners()
     this.fetchAndLoadBooks()
   }
 
@@ -11,7 +10,8 @@ class Books {
       .getBooks()
       .then(books => {
       // return console.log(books)
-      books.forEach(book => this.books.push(book))
+      books.forEach(book => this.books.push(new Book(book)))
+      // console.log(this.books)
       })
       .then(() => {
       this.render()
@@ -19,16 +19,10 @@ class Books {
   }
 
   render() {
-    const booksContainer = document.getElementById('testingbooks')
-    booksContainer.innerHTML = 'My books Here!'
-    console.log ('look at my books... ', this.books)
+    // console.log(this.books)
+    const booksContainer = document.getElementById('book-content')
+    booksContainer.innerHTML = this.books.map(book => book.createBookBlock())
+
   }
-
-  // render() {
-  //   const reviewsContainer = document.getElementById('review-container')
-  //   reviewsContainer.innerHTML = 'My reviews Here!'
-  // }
-
-
 
 }
