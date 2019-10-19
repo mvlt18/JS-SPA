@@ -23,9 +23,13 @@ class Book {
       title.innerHTML = this.title
       bookBlock.appendChild(title)
 
-      const reviews = document.createElement('p')
-      reviews.innerHTML = this.reviews
+      const reviews = document.createElement('ul')
       bookBlock.appendChild(reviews)
+      reviews.innerHTML = this.reviews.map(review => `<li><p>${review.body}</p></li>`).join('')
+      // const review = document.createElement('li')
+      // review.innerHTML = this.reviews.map(review => `<p>${review.body}</p>`).join('')
+      // reviews.appendChild(review)
+      // console.log(this.reviews)
 
       booksContainer.appendChild(bookBlock)
     }

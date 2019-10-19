@@ -22,7 +22,5 @@ class Books {
     // console.log(this.books)
     const booksContainer = document.getElementById('book-content')
     booksContainer.innerHTML = this.books.map(book => book.createBookBlock())
-
   }
-
 }
