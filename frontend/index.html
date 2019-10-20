@@ -10,31 +10,48 @@
 
   <body>
     <!-- Top menu -->
-    <div class="top-header"><h1>Page-Turners Club</h1></div>
+    <div class="top-header"><h1>Book Club</h1></div>
+
+    <!-- Add New Book to Book Club -->
+    <div id="new-book-container">
+      <form id="new-book-form">
+        <h3>Finished a new book not listed yet? Add it!</h3>
+        <input type="text" id="new-book-title" placeholder="Enter Book Title">
+        <input type="text" id="new-book-author" placeholder="Enter Book Author">
+        <input type="text" id="new-book-image" placeholder="Enter Book URL image">
+        <input type="submit" name="" value="Add Book">
+      </form>
+    </div>
 
     <!-- Photo Grid-->
     <div id=books-content>
-
     </div>
+
+    <script src="src/components/book.js"></script>
+    <script src="src/components/books.js"></script>
+    <script src="src/components/app.js"></script>
+    <script src="src/adapters/BooksAdapter.js"></script>
+    <script src="src/index.js"></script>
+
+
+    </body>
+  </html>
 
 
 <!--delete this - example of what it should look like -->
+<!-- ///////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////// -->
+<!-- ///////////////////////////////////////////////////////// -->
+
+
     <!-- <div class="quarter-container">
       <img id="image" src="" alt="Book 1" >
       <h3 id="book-title">Brotopia: Breaking Up the Boys' Club of Silicon Valley</h3> -->
       <!-- <div>
         <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-      </div> -->
-
-      <!-- Add New Review -->
-      <!-- <div id="new-review-container">
-        <form id="review-form">
-           <label> <h4>Add a New Review</h4> </label>
-           <input type="text" id="new-review-input" value = "Click to add a new Review">
-           <button type="submit">Add</button>
-        </form>
       </div>
-
     </div> -->
 
     <!-- <div class="quarter-container">
@@ -80,24 +97,23 @@
     </div> -->
   <!-- </div> -->
 
-  <!-- Add New Book to Book Club -->
 
-  <!-- <div id="add-new-book">
-    <form id="new-book-form">
-      <h2>Finished a new book not listed yet? Add it!</h2>
-      <input type="text" id="new-book-title" value="Enter Book Title">
-      <input type="text" id="new-book-author" value="Enter Book Author">
-      <input type="text" id="new-book-image" value="Enter Book URL image">
-      <input type="submit" name="" value="Add Book">
+
+
+
+
+  <!-- ///////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////////////////////////// -->
+
+  <!-- Add New Review -->
+
+  <!-- <div id="new-review-container">
+    <form id="new-review-form">
+       <label> <h4>Add a New Review</h4> </label>
+       <input type="text" id="new-review-input" value = "Click to add a new Review">
+       <button type="submit">Add</button>
     </form>
-  </div> -->
-
-  <script src="src/components/book.js"></script>
-  <script src="src/components/books.js"></script>
-  <script src="src/components/app.js"></script>
-  <script src="src/adapters/BooksAdapter.js"></script>
-  <script src="src/index.js"></script>
-
-
-  </body>
-</html>
+  </div>

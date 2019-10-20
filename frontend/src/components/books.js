@@ -2,8 +2,13 @@ class Books {
   constructor() {
     this.books = []
     this.adapter = new BooksAdapter()
+    // this.initBindingsAndEventListeners()
     this.fetchAndLoadBooks()
   }
+
+  // initBindingsAndEventListeners() {
+  //   this.booksContainer = document.getElementById('books-content')
+  // }
 
   fetchAndLoadBooks() {
     this.adapter
@@ -14,13 +19,14 @@ class Books {
       // console.log(this.books)
       })
       .then(() => {
-      this.render()
+      this.renderBooks()
     })
   }
 
-  render() {
-    // console.log(this.books)
-    const booksContainer = document.getElementById('book-content')
-    booksContainer.innerHTML = this.books.map(book => book.createBookBlock())
+  renderBooks() {
+  // console.log(this.books)
+  this.books.map(book => book.renderBookBlock())
   }
+
+
 }

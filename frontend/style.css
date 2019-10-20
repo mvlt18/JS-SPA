@@ -30,6 +30,12 @@ p{
  margin: 8px;
 }
 
+img{
+  width: 25%;
+  height: 25%;
+  padding:4px;
+}
+
 .top-header {
   padding-top:16px;
   padding-bottom:16px;

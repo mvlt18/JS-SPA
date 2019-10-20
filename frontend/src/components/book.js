@@ -9,7 +9,7 @@ class Book {
     this.reviews = bookJSON.reviews
   }
 
-  createBookBlock() {
+  renderBookBlock() {
     const booksContainer = document.getElementById('books-content')
 
       const bookBlock = document.createElement('div')
@@ -26,9 +26,7 @@ class Book {
       const reviews = document.createElement('ul')
       bookBlock.appendChild(reviews)
       reviews.innerHTML = this.reviews.map(review => `<li><p>${review.body}</p></li>`).join('')
-      // const review = document.createElement('li')
-      // review.innerHTML = this.reviews.map(review => `<p>${review.body}</p>`).join('')
-      // reviews.appendChild(review)
+      
       // console.log(this.reviews)
 
       booksContainer.appendChild(bookBlock)
