@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    # binding.pry
     @book = Book.create(book_params)
     render json: @book, status: 200
   end

@@ -26,7 +26,7 @@ class Book {
       const reviews = document.createElement('ul')
       bookBlock.appendChild(reviews)
       reviews.innerHTML = this.reviews.map(review => `<li><p>${review.body}</p></li>`).join('')
-      
+
       // console.log(this.reviews)
 
       booksContainer.appendChild(bookBlock)
