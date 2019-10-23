@@ -13,20 +13,23 @@ class BooksController < ApplicationController
   end
 
   def show
+    # binding.pry
     render json: @book, status: 200
   end
 
-  def update
-    @book.update(book_params)
-    if @book.save
-      render json: @book, status: 200
-    else
-      render json: { errors: @book.errors.full_messages }, status: 422
-    end
-  end
+  # def update
+  #   @book.update(book_params)
+  #   if @book.save
+  #     render json: @book, status: 200
+  #   else
+  #     render json: { errors: @book.errors.full_messages }, status: 422
+  #   end
+  # end
 
   def destroy
+    # binding.pry
     @book.destroy
+    # render json: {bookId: @book.id}
   end
 
   private
