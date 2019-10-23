@@ -54,10 +54,7 @@ class Books {
 
   renderBooks() {
   // console.log(this.books)
-  const booksContainer = document.getElementById('books-content')
-  booksContainer.innerHTML = ' '
   this.books.map(book => book.renderBookBlock())
   }
-
-
+  
 }
