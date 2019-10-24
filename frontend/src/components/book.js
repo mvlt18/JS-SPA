@@ -14,7 +14,6 @@ class Book {
 
       const bookBlock = document.createElement('div')
       bookBlock.className = "book-container"
-      // bookBlock.setAttribute("id", `book-container-${this.id}`)
       booksContainer.appendChild(bookBlock)
 
         const deleteButton = document.createElement("BUTTON")
@@ -37,25 +36,45 @@ class Book {
         bookBlock.appendChild(bookInfo)
 
           const title = document.createElement('h3')
+          title.setAttribute("class", 'book-title')
           title.innerHTML = this.title
           bookInfo.appendChild(title)
 
-          const reviews = document.createElement('ul')
-          bookInfo.appendChild(reviews)
-          reviews.innerHTML = this.reviews.map(review => `<li><p>${review.body}</p></li>`).join('')
+          const author = document.createElement('h3')
+          author.setAttribute("class", 'book-author')
+          author.innerHTML = `by: ${this.author}`
+          bookInfo.appendChild(author)
+
+        const reviewInfo = document.createElement('div')
+        reviewInfo.className = "review-info"
+        bookBlock.appendChild(reviewInfo)
+
+          const reviewHeader = document.createElement('h4')
+          reviewHeader.setAttribute("class", 'review-header')
+          reviewHeader.innerHTML = 'Tribe Thoughts:'
+          reviewInfo.appendChild(reviewHeader)
+
+          const reviews = document.createElement('div')
+          reviewInfo.appendChild(reviews)
+          reviews.innerHTML = this.reviews.map(review => this.reviewBody(review)).join('')
 
           // console.log(this.reviews)
   }
 
+  reviewBody(review){
+    // console.log(review)
+    return `<p>${review.reviewer} said: ${review.body}</p>`
+  }
+
   deleteBook(id){
-    console.log(`the clicked book is ID: ${id}`)
+    // console.log(`the clicked book is ID: ${id}`)
     return fetch('http://localhost:3000/books' + '/' + id, {
     method: 'DELETE',
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json"
       }
-    })//.then(console.log("Item successfully deleted"))
+    })
   }
 
 }

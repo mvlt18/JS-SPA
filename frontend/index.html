@@ -2,60 +2,48 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Book Club</title>
+    <title>Home Grown Books</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300|Work+Sans:300&display=swap" rel="stylesheet">
 
   </head>
 
   <body>
-    <!-- Top menu -->
 
-    <div class="top-header"><h1>Book Club</h1></div>
+    <!-- Top Header -->
+    <div id="top-header">
+       <h1>Home Grown Books</h1>
+       <h2 id ="txt-inside-img">a book club for your tribe</h2>
+       <div>
+           <img id='header-image' src="white-books.jpg" alt="books">
+      </div>
+    </div>
+
+    <!-- Book Grid-->
+    <div class="container">
+      <section id="books-content"></section>
+    </div>
 
     <!-- Add New Book to Book Club -->
     <div id="new-book-container">
       <form id="new-book-form">
-        <h3>Finished a new book not listed yet? Add it!</h3>
+        <h2>Finished a new book not listed yet? Add it!</h2>
+        <label for="new-book-title">Book Title:</label>
         <input type="text" id="new-book-title" placeholder="Enter Book Title">
+        <label for="new-book-author">Book Author:</label>
         <input type="text" id="new-book-author" placeholder="Enter Book Author">
+        <label for="new-book-image">Image URL:</label>
         <input type="text" id="new-book-image" placeholder="Enter Book URL image">
         <button type="submit">Add Book</button>
       </form>
     </div>
 
-    <!-- Book Grid-->
-    <div class="container">
-      <section id="books-content">
-      </section>
-    </div>
-
+    <!-- JS scripts-->
     <script src="src/components/book.js"></script>
     <script src="src/components/books.js"></script>
     <script src="src/components/app.js"></script>
     <script src="src/adapters/BooksAdapter.js"></script>
     <script src="src/index.js"></script>
 
-
     </body>
   </html>
-
-
-
-
-
-  <!-- ///////////////////////////////////////////////////////// -->
-  <!-- ///////////////////////////////////////////////////////// -->
-  <!-- ///////////////////////////////////////////////////////// -->
-  <!-- ///////////////////////////////////////////////////////// -->
-  <!-- ///////////////////////////////////////////////////////// -->
-
-  <!-- Add New Review -->
-
-  <!-- <div id="new-review-container">
-    <form id="new-review-form">
-       <label> <h4>Add a New Review</h4> </label>
-       <input type="text" id="new-review-input" value = "Click to add a new Review">
-       <button type="submit">Add</button>
-    </form>
-  </div>
