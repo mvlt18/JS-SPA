@@ -7,26 +7,28 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @review = Review.create(review_params)
     render json: @review, status: 200
+    # binding.pry
   end
 
-  def show
-    render json: @review, status: 200
-  end
+  # def show
+  #   render json: @review, status: 200
+  # end
 
-  def update
-    @review.update(review_params)
-    if @review.save
-      render json: @review, status: 200
-    else
-      render json: { errors: @review.errors.full_messages }, status: 422
-    end
-  end
+  # def update
+  #   @review.update(review_params)
+  #   if @review.save
+  #     render json: @review, status: 200
+  #   else
+  #     render json: { errors: @review.errors.full_messages }, status: 422
+  #   end
+  # end
 
-  def destroy
-    @review.destroy
-  end
+  # def destroy
+  #   @review.destroy
+  # end
 
   private
 
