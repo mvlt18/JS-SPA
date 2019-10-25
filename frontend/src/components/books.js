@@ -56,5 +56,5 @@ class Books {
   // console.log(this.books)
   this.books.map(book => book.renderBookBlock())
   }
-  
+
 }

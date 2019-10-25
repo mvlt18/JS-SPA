@@ -23,5 +23,6 @@ class BooksAdapter{
       body:JSON.stringify(book)
     })
     .then(res => res.json())
+    .catch(error => console.log("Error: " + error))
   }
 }

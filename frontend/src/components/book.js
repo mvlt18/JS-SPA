@@ -1,4 +1,6 @@
+
 class Book {
+
   constructor(bookJSON) {
     // console.log(Book) // logs Book class correctly.
     // console.log(bookJSON) // logs
@@ -21,10 +23,10 @@ class Book {
         deleteButton.innerHTML = "Delete Book"
         bookBlock.appendChild(deleteButton)
 
-              deleteButton.addEventListener('click', () => {
-                bookBlock.remove()
-                this.deleteBook(`${this.id}`)
-              })
+            deleteButton.addEventListener('click', () => {
+              bookBlock.remove()
+              this.deleteBook(`${this.id}`)
+            })
 
         const reviewButton = document.createElement("BUTTON")
         reviewButton.setAttribute("id", `review-button-${this.id}`)
@@ -32,12 +34,7 @@ class Book {
         reviewButton.innerHTML = "Add A Thought"
         bookBlock.appendChild(reviewButton)
 
-              // reviewButton.addEventListener('click', () => {
-              //   // console.log(this)
-              //   this.enterReviewInputs(this)
-              // })
-
-              reviewButton.addEventListener('click', this.enterReviewInputs.bind(this))
+            reviewButton.addEventListener('click', this.getAndFormatNewReviewForm.bind(this))
 
 
         const image = document.createElement('img')
@@ -78,7 +75,6 @@ class Book {
 
   reviewBody(review){
     // console.log(review)
-    // return `<p>${review.reviewer} said: ${review.body}</p>`
     return `<p>${review.body}</p>`
   }
 
@@ -92,35 +88,49 @@ class Book {
       }
     })
   }
-  enterReviewInputs(event){
-    // console.log(this)
+
+  getAndFormatNewReviewForm(event){
+    console.log("enterReviewInputs called by ", event.target)
+    console.log(this)
     event.preventDefault();
+    //get the new review form from main html
     const newReviewForm = document.getElementById('new-review-form')
+    //add an name as the current book id of the clicked book
     newReviewForm.name = this.id
-    newReviewForm.addEventListener('submit', this.submitReviewInputs.bind(this))
+    console.log(this, "line 110")
+    const submitButton = document.createElement("button")
+    submitButton.innerHTML = "Add"
+    submitButton.id = "review-submit"
+    submitButton.type = "submit"
+    const buttonDiv = document.getElementById("buttons")
+    buttonDiv.appendChild(submitButton)
+    submitButton.addEventListener('click', this.submitReviewInputs.bind(this))
   }
 
-  submitReviewInputs(e){
+  submitReviewInputs(event){
     // console.log(e)
-    console.log(event.target.name) //new review form name ==== this.id
-    e.preventDefault();
+    console.log(this, "this value in submitReviewInputs")
+    console.log(event.target, "line 106") //new review form name ==== this.id
+    event.preventDefault();
     // console.log(this) //the book
+    const buttonDiv = document.getElementById("buttons")
+    const submitButton = document.getElementById("review-submit")
+    const form = document.getElementById('new-review-form')
+    console.log(`this is the ${form} from line 119`)
     const newReviewBody = document.getElementById('new-review-body')
     const newReviewReviewer = document.getElementById('new-review-reviewer')
     // console.log(newReviewBody.value)
     // console.log(newReviewReviewer)
     // const reviewBox = document.getElementById(`review-${this.id}`)
-    const reviewBox = document.getElementById(`review-${event.target.name}`)
+    const reviewBox = document.getElementById(`review-${form.name}`)
     const pDiv = document.createElement('p')
     reviewBox.appendChild(pDiv)
 
     const reviewAddition = {
         // book_id: this.id ,
-        book_id: event.target.name,
+        book_id: form.name,
         body: newReviewBody.value,
-        reviewer: newReviewReviewer.value
     };
-
     fetch('http://localhost:3000/reviews', {
       method:'POST',
       headers: {
@@ -133,15 +143,11 @@ class Book {
       .then(review => {
       // console.log(review)
       // console.log(review.body)
-      // console.log(review.reviewer)
 
-      // pDiv.innerHTML = `${review.reviewer} said: ${review.body}`;
       pDiv.innerHTML = review.body
-      console.log(this)
-
       newReviewBody.value = ' '
-      newReviewReviewer.value = ' '
-      })
+      buttonDiv.removeChild(submitButton)
+      closeForm()
+    })
   }
-
 }
