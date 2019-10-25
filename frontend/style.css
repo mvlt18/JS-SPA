@@ -117,3 +117,31 @@ img {
     margin-bottom: 0px;
     vertical-align: middle;
   }
+
+  #new-review-container{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    width:550px;
+    height:250px;
+    background-color: lightgrey;
+    text-align:center;
+    padding: 20px
+  }
+
+  #new-review-reviewer{
+    height: 40px;
+    width: 100%
+  }
+
+  #new-review-body{
+    height: 80px;
+    width: 100%
+  }
+
+  #buttons{
+    padding: 20px
+  }
