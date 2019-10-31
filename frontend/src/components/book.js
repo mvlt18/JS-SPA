@@ -1,9 +1,8 @@
-
 class Book {
 
   constructor(bookJSON) {
     // console.log(Book) // logs Book class correctly.
-    // console.log(bookJSON) // logs
+    // console.log(bookJSON) // logs Book object correctly.
     this.id = bookJSON.id
     this.title = bookJSON.title
     this.author = bookJSON.author
@@ -90,15 +89,12 @@ class Book {
   }
 
   getAndFormatNewReviewForm(event){
-    console.log("enterReviewInputs called by ", event.target)
-    console.log(this)
+    // console.log("getAndFormatNewReviewForm called by ", event.target)
+    // console.log(this) // the correct Book object that was clicked
+    // console.log(this.id)  // current book id of the clicked book
     event.preventDefault();
-    //get the new review form from main html
-    const newReviewForm = document.getElementById('new-review-form')
-    //add an name as the current book id of the clicked book
-    newReviewForm.name = this.id
-    console.log(this, "line 110")
-    const submitButton = document.createElement("button")
+    const newReviewForm = document.getElementById('new-review-form')   //get the new review form from main html
+    const submitButton = document.createElement("button") // build the add review button
     submitButton.innerHTML = "Add"
     submitButton.id = "review-submit"
     submitButton.type = "submit"
@@ -108,27 +104,21 @@ class Book {
   }
 
   submitReviewInputs(event){
-    // console.log(e)
-    console.log(this, "this value in submitReviewInputs")
-    console.log(event.target, "line 106") //new review form name ==== this.id
+    // console.log(this) // the correct book object that is meant to be submitted
+    // console.log(event.target, "line 108")
     event.preventDefault();
-    // console.log(this) //the book
     const buttonDiv = document.getElementById("buttons")
     const submitButton = document.getElementById("review-submit")
     const form = document.getElementById('new-review-form')
-    console.log(`this is the ${form} from line 119`)
+    // console.log(`this is the ${form} from line 114`)
+    // console.log(this.id, "line 114") // still the correct book id.
     const newReviewBody = document.getElementById('new-review-body')
-    const newReviewReviewer = document.getElementById('new-review-reviewer')
-    // console.log(newReviewBody.value)
-    // console.log(newReviewReviewer)
-    // const reviewBox = document.getElementById(`review-${this.id}`)
-    const reviewBox = document.getElementById(`review-${form.name}`)
+    const reviewBox = document.getElementById(`review-${this.id}`)
     const pDiv = document.createElement('p')
     reviewBox.appendChild(pDiv)
 
     const reviewAddition = {
-        // book_id: this.id ,
-        book_id: form.name,
+        book_id: this.id ,
         body: newReviewBody.value,
     };
     fetch('http://localhost:3000/reviews', {
@@ -150,4 +140,5 @@ class Book {
       closeForm()
     })
   }
+
 }
